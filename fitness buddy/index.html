@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fitness Buddy AI — Your IBM Granite Powered Coach</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════════════════════════
+     NAVIGATION
+═══════════════════════════════════════════════════════════════════════════ -->
+<nav class="navbar" id="navbar">
+  <div class="nav-container">
+    <a class="nav-brand" href="#hero">
+      <span class="brand-icon">⚡</span>
+      <span class="brand-text">Fitness <span class="brand-accent">Buddy AI</span></span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#hero"       class="nav-link active">Home</a></li>
+      <li><a href="#dashboard"  class="nav-link">Dashboard</a></li>
+      <li><a href="#profile"    class="nav-link">Profile</a></li>
+      <li><a href="#workout"    class="nav-link">Workout</a></li>
+      <li><a href="#nutrition"  class="nav-link">Nutrition</a></li>
+      <li><a href="#bmi"        class="nav-link">BMI</a></li>
+      <li><a href="#habits"     class="nav-link">Habits</a></li>
+      <li><a href="#chat"       class="nav-link">AI Chat</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme" title="Toggle dark/light mode">
+        <span class="theme-icon" id="themeIcon">🌙</span>
+      </button>
+      <button class="nav-hamburger" id="hamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════════════════════════════════════════════
+     HERO / LANDING
+═══════════════════════════════════════════════════════════════════════════ -->
+<section class="hero" id="hero">
+  <div class="hero-bg-orbs">
+    <div class="orb orb1"></div>
+    <div class="orb orb2"></div>
+    <div class="orb orb3"></div>
+  </div>
+  <div class="hero-container">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        Powered by IBM Granite AI
+      </div>
+      <h1 class="hero-title">
+        Your Personal<br />
+        <span class="gradient-text">AI Fitness Coach</span>
+      </h1>
+      <p class="hero-subtitle">
+        Transform your health journey with personalized workouts, smart nutrition plans,
+        and real-time AI coaching — all powered by IBM watsonx.ai and Granite.
+      </p>
+      <div class="hero-cta">
+        <button class="btn btn-primary btn-lg" onclick="scrollToSection('profile')">
+          🚀 Start My Journey
+        </button>
+        <button class="btn btn-ghost btn-lg" onclick="scrollToSection('dashboard')">
+          📊 View Dashboard
+        </button>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-pill"><span class="stat-num">10+</span> Features</div>
+        <div class="stat-pill"><span class="stat-num">IBM</span> Granite AI</div>
+        <div class="stat-pill"><span class="stat-num">100%</span> Free</div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="fitness-card-float">
+        <div class="float-card card1">
+          <div class="float-icon">💪</div>
+          <div class="float-label">Workout Plan</div>
+          <div class="float-val">Generated!</div>
+        </div>
+        <div class="float-card card2">
+          <div class="float-icon">🥗</div>
+          <div class="float-label">Nutrition</div>
+          <div class="float-val">Optimized</div>
+        </div>
+        <div class="float-card card3">
+          <div class="float-icon">🔥</div>
+          <div class="float-label">Calories</div>
+          <div class="float-val">On Track</div>
+        </div>
+        <div class="hero-avatar">
+          <div class="avatar-ring"></div>
+          <div class="avatar-core">
+            <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" class="fitness-svg">
+              <!-- Body -->
+              <circle cx="60" cy="28" r="16" fill="url(#avatarGrad)" />
+              <rect x="42" y="48" width="36" height="40" rx="8" fill="url(#avatarGrad)" />
+              <!-- Arms -->
+              <rect x="18" y="50" width="26" height="10" rx="5" fill="url(#accentGrad)" transform="rotate(-15 31 55)" />
+              <rect x="76" y="50" width="26" height="10" rx="5" fill="url(#accentGrad)" transform="rotate(15 89 55)" />
+              <!-- Dumbbell left -->
+              <rect x="8"  y="52" width="14" height="6"  rx="3" fill="url(#accentGrad)" />
+              <!-- Dumbbell right -->
+              <rect x="98" y="52" width="14" height="6"  rx="3" fill="url(#accentGrad)" />
+              <!-- Legs -->
+              <rect x="44" y="86" width="12" height="26" rx="6" fill="url(#avatarGrad)" />
+              <rect x="64" y="86" width="12" height="26" rx="6" fill="url(#avatarGrad)" />
+              <!-- Shoes -->
+              <ellipse cx="50" cy="113" rx="9" ry="5" fill="#6366f1" />
+              <ellipse cx="70" cy="113" rx="9" ry="5" fill="#6366f1" />
+              <defs>
+                <linearGradient id="avatarGrad" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#8b5cf6"/>
+                  <stop offset="100%" stop-color="#3b82f6"/>
+                </linearGradient>
+                <linearGradient id="accentGrad" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#06b6d4"/>
+                  <stop offset="100%" stop-color="#8b5cf6"/>
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-features-strip">
+    <div class="feature-chip"><span>🏋️</span> Workout Plans</div>
+    <div class="feature-chip"><span>🥗</span> Nutrition</div>
+    <div class="feature-chip"><span>💬</span> AI Chat</div>
+    <div class="feature-chip"><span>📊</span> BMI Tracker</div>
+    <div class="feature-chip"><span>✅</span> Habit Tracker</div>
+    <div class="feature-chip"><span>🌟</span> Daily Motivation</div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════════════
+     DASHBOARD
+═══════════════════════════════════════════════════════════════════════════ -->
+<section class="section" id="dashboard">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">📊 Dashboard</h2>
+      <p class="section-subtitle">Your daily health overview at a glance</p>
+    </div>
+    <div class="dashboard-date" id="dashDate">—</div>
+    <div class="dashboard-grid">
+      <div class="dash-card glass" id="dashBMI">
+        <div class="dash-card-icon">⚖️</div>
+        <div class="dash-card-label">BMI</div>
+        <div class="dash-card-value" id="dashBMIVal">—</div>
+        <div class="dash-card-sub" id="dashBMICat">Set your profile</div>
+      </div>
+      <div class="dash-card glass" id="dashCal">
+        <div class="dash-card-icon">🔥</div>
+        <div class="dash-card-label">Calories Target</div>
+        <div class="dash-card-value" id="dashCalVal">—</div>
+        <div class="dash-card-sub" id="dashCalSub">kcal / day</div>
+      </div>
+      <div class="dash-card glass" id="dashWater">
+        <div class="dash-card-icon">💧</div>
+        <div class="dash-card-label">Water Intake</div>
+        <div class="dash-card-value" id="dashWaterVal">—</div>
+        <div class="dash-card-sub">ml / day</div>
+      </div>
+      <div class="dash-card glass" id="dashProtein">
+        <div class="dash-card-icon">🥩</div>
+        <div class="dash-card-label">Protein Target</div>
+        <div class="dash-card-value" id="dashProteinVal">—</div>
+        <div class="dash-card-sub">grams / day</div>
+      </div>
+      <div class="dash-card glass dash-card-wide" id="dashProgress">
+        <div class="dash-card-icon">🎯</div>
+        <div class="dash-card-label">Today's Progress</div>
+        <div class="progress-bar-container">
+          <div class="progress-bar" id="dashProgressBar" style="width:0%"></div>
+        </div>
+        <div class="dash-card-sub" id="dashProgressSub">Complete your habits to track progress</div>
+      </div>
+      <div class="dash-card glass" id="dashGoal">
+        <div class="dash-card-icon">🏆</div>
+        <div class="dash-card-label">Current Goal</div>
+        <div class="dash-card-value dash-goal-val" id="dashGoalVal">—</div>
+      </div>
+    </div>
+    <div class="dashboard-refresh">
+      <button class="btn btn-primary" id="refreshDash" onclick="refreshDashboard()">
+        ↻ Refresh Dashboard
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════════════
+     USER PROFILE
+═══════════════════════════════════════════════════════════════════════════ -->
+<section class="section section-alt" id="profile">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">👤 Your Profile</h2>
+      <p class="section-subtitle">Tell us about yourself so IBM Granite can personalize everything</p>
+    </div>
+    <form class="profile-form glass-form" id="profileForm" onsubmit="saveProfile(event)">
+      <div class="form-grid">
+        <div class="form-group">
+          <label for="userName">Full Name</label>
+          <input type="text" id="userName" placeholder="e.g., Alex Johnson" required />
+        </div>
+        <div class="form-group">
+          <label for="userAge">Age</label>
+          <input type="number" id="userAge" min="10" max="100" placeholder="e.g., 28" required />
+        </div>
+        <div class="form-group">
+          <label for="userGender">Gender</label>
+          <select id="userGender" required>
+            <option value="">Select gender</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Non-binary">Non-binary</option>
+            <option value="Prefer not to say">Prefer not to say</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="userHeight">Height (cm)</label>
+          <input type="number" id="userHeight" min="100" max="250" placeholder="e.g., 175" required />
+        </div>
+        <div class="form-group">
+          <label for="userWeight">Weight (kg)</label>
+          <input type="number" id="userWeight" min="20" max="300" placeholder="e.g., 70" step="0.1" required />
+        </div>
+        <div class="form-group">
+          <label for="userGoal">Fitness Goal</label>
+          <select id="userGoal" required>
+            <option value="">Select your goal</option>
+            <option value="Weight Loss">⚖️ Weight Loss</option>
+            <option value="Weight Gain">📈 Weight Gain</option>
+            <option value="Muscle Building">💪 Muscle Building</option>
+            <option value="General Fitness">🏃 General Fitness</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="userActivity">Activity Level</label>
+          <select id="userActivity" required>
+            <option value="">Select activity level</option>
+            <option value="Sedentary">🛋️ Sedentary (little or no exercise)</option>
+            <option value="Light">🚶 Light (1–3 days/week)</option>
+            <option value="Moderate">🚴 Moderate (3–5 days/week)</option>
+            <option value="Active">🏋️ Active (6–7 days/week)</option>
+            <option value="Very Active">🔥 Very Active (athlete)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="userDiet">Dietary Preference</label>
+          <select id="userDiet">
+            <option value="No preference">No preference</option>
+            <option value="Vegetarian">🥦 Vegetarian</option>
+            <option value="Vegan">🌱 Vegan</option>
+            <option value="Keto">🥑 Keto</option>
+            <option value="Paleo">🥩 Paleo</option>
+            <option value="Mediterranean">🫒 Mediterranean</option>
+            <option value="Gluten-free">🌾 Gluten-free</option>
+            <option value="Halal">🌙 Halal</option>
+            <option value="Kosher">✡️ Kosher</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="userWorkoutTime">Workout Time (minutes/day)</label>
+          <input type="number" id="userWorkoutTime" min="10" max="180" placeholder="e.g., 45" />
+        </div>
+      </div>
+      <div class="form-actions">
+        <button type="submit" class="btn btn-primary btn-lg">
+          💾 Save Profile &amp; Unlock AI Features
+        </button>
+        <button type="button" class="btn btn-ghost" onclick="clearProfile()">
+          🗑️ Clear
+        </button>
+      </div>
+    </form>
+    <div class="profile-saved-banner glass hidden" id="profileBanner">
+      ✅ Profile saved! IBM Granite is ready to personalize your fitness plan.
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════════════
+     WORKOUT PLAN
+═══════════════════════════════════════════════════════════════════════════ -->
+<section class="section" id="workout">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">🏋️ AI Workout Plan</h2>
+      <p class="section-subtitle">IBM Granite generates your personalized weekly workout routine</p>
+    </div>
+    <div class="ai-action-card glass">
+      <div class="ai-card-header">
+        <div class="ai-card-icon">💪</div>
+        <div>
+          <h3>Generate Your Workout Plan</h3>
+          <p>Get a full week of personalized exercises, warm-ups, cool-downs and more</p>
+        </div>
+      </div>
+      <button class="btn btn-primary btn-lg" onclick="generateWorkout()">
+        ⚡ Generate with IBM Granite
+      </button>
+    </div>
+    <div class="ai-result-container glass hidden" id="workoutResult">
+      <div class="ai-result-header">
+        <span class="ai-badge">IBM Granite AI</span>
+        <button class="btn btn-sm btn-ghost" onclick="copyResult('workoutContent')">📋 Copy</button>
+      </div>
+      <div class="ai-result-content" id="workoutContent"></div>
+    </div>
+    <div class="ai-loader hidden" id="workoutLoader">
+      <div class="loader-dots"><span></span><span></span><span></span></div>
+      <p>IBM Granite is crafting your workout plan…</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════════════
+     NUTRITION
+═══════════════════════════════════════════════════════════════════════════ -->
+<section class="section section-alt" id="nutrition">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">🥗 Nutrition Assistant</h2>
+      <p class="section-subtitle">Personalized meal plans and macros from IBM Granite AI</p>
+    </div>
+    <div class="ai-action-card glass">
+      <div class="ai-card-header">
+        <div class="ai-card-icon">🥗</div>
+        <div>
+          <h3>Generate Nutrition Plan</h3>
+          <p>Breakfast, lunch, dinner, snacks, and macro breakdown tailored to your goal</p>
+        </div>
+      </div>
+      <button class="btn btn-primary btn-lg" onclick="generateNutrition()">
+        ⚡ Generate with IBM Granite
+      </button>
+    </div>
+    <div class="ai-result-container glass hidden" id="nutritionResult">
+      <div class="ai-result-header">
+        <span class="ai-badge">IBM Granite AI</span>
+        <button class="btn btn-sm btn-ghost" onclick="copyResult('nutritionContent')">📋 Copy</button>
+      </div>
+      <div class="ai-result-content" id="nutritionContent"></div>
+    </div>
+    <div class="ai-loader hidden" id="nutritionLoader">
+      <div class="loader-dots"><span></span><span></span><span></span></div>
+      <p>IBM Granite is building your nutrition plan…</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════════════
+     DAILY MOTIVATION
+═══════════════════════════════════════════════════════════════════════════ -->
+<section class="section" id="motivation">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">🌟 Daily Motivation</h2>
+      <p class="section-subtitle">Your personalized daily fuel from IBM Granite AI</p>
+    </div>
+    <div class="ai-action-card glass">
+      <div class="ai-card-header">
+        <div class="ai-card-icon">🌟</div>
+        <div>
+          <h3>Get Today's Motivation</h3>
+          <p>A quote, fitness tip, habit suggestion, and mindset shift — just for you</p>
+        </div>
+      </div>
+      <button class="btn btn-primary btn-lg" onclick="generateMotivation()">
+        ⚡ Motivate Me Now
+      </button>
+    </div>
+    <div class="ai-result-container glass hidden" id="motivationResult">
+      <div class="ai-result-header">
+        <span class="ai-badge">IBM Granite AI</span>
+        <button class="btn btn-sm btn-ghost" onclick="copyResult('motivationContent')">📋 Copy</button>
+      </div>
+      <div class="ai-result-content" id="motivationContent"></div>
+    </div>
+    <div class="ai-loader hidden" id="motivationLoader">
+      <div class="loader-dots"><span></span><span></span><span></span></div>
+      <p>IBM Granite is preparing your motivation…</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════════════
+     BMI CALCULATOR
+═══════════════════════════════════════════════════════════════════════════ -->
+<section class="section section-alt" id="bmi">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">⚖️ BMI Calculator</h2>
+      <p class="section-subtitle">Calculate your BMI and get AI-powered health advice</p>
+    </div>
+    <div class="bmi-layout">
+      <div class="bmi-inputs glass-form">
+        <h3 class="form-section-title">Your Measurements</h3>
+        <div class="form-group">
+          <label for="bmiWeight">Weight (kg)</label>
+          <input type="number" id="bmiWeight" min="20" max="300" placeholder="e.g., 70" step="0.1" />
+        </div>
+        <div class="form-group">
+          <label for="bmiHeight">Height (cm)</label>
+          <input type="number" id="bmiHeight" min="100" max="250" placeholder="e.g., 175" />
+        </div>
+        <div class="form-group">
+          <label for="bmiAge">Age</label>
+          <input type="number" id="bmiAge" min="10" max="100" placeholder="e.g., 28" />
+        </div>
+        <div class="form-group">
+          <label for="bmiGender">Gender</label>
+          <select id="bmiGender">
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="bmiGoal">Fitness Goal</label>
+          <select id="bmiGoal">
+            <option value="General Fitness">General Fitness</option>
+            <option value="Weight Loss">Weight Loss</option>
+            <option value="Weight Gain">Weight Gain</option>
+            <option value="Muscle Building">Muscle Building</option>
+          </select>
+        </div>
+        <button class="btn btn-primary btn-lg full-width" onclick="calculateBMI()">
+          ⚡ Calculate BMI
+        </button>
+      </div>
+      <div class="bmi-result-panel">
+        <div class="bmi-gauge-card glass" id="bmiGaugeCard">
+          <div class="bmi-gauge" id="bmiGauge">
+            <svg viewBox="0 0 200 110" class="gauge-svg">
+              <defs>
+                <linearGradient id="gaugeGrad" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0%"   stop-color="#3b82f6"/>
+                  <stop offset="33%"  stop-color="#22c55e"/>
+                  <stop offset="66%"  stop-color="#f59e0b"/>
+                  <stop offset="100%" stop-color="#ef4444"/>
+                </linearGradient>
+              </defs>
+              <path d="M20,100 A80,80 0 0,1 180,100" fill="none" stroke="#e5e7eb" stroke-width="14" stroke-linecap="round"/>
+              <path id="gaugeArc" d="M20,100 A80,80 0 0,1 180,100" fill="none" stroke="url(#gaugeGrad)" stroke-width="14" stroke-linecap="round" stroke-dasharray="251" stroke-dashoffset="251"/>
+              <text id="gaugeBMIText" x="100" y="90" text-anchor="middle" class="gauge-num">—</text>
+              <text id="gaugeCatText" x="100" y="108" text-anchor="middle" class="gauge-cat">Enter measurements</text>
+            </svg>
+          </div>
+          <div class="bmi-scale">
+            <div class="scale-item underweight"><span class="scale-dot"></span>Underweight &lt;18.5</div>
+            <div class="scale-item normal"><span class="scale-dot"></span>Normal 18.5–24.9</div>
+            <div class="scale-item overweight"><span class="scale-dot"></span>Overweight 25–29.9</div>
+            <div class="scale-item obese"><span class="scale-dot"></span>Obese ≥30</div>
+          </div>
+        </div>
+        <div class="bmi-stats-row hidden" id="bmiStatsRow">
+          <div class="bmi-stat glass"><span class="bmi-stat-label">BMI</span><span class="bmi-stat-val" id="bmiStatVal">—</span></div>
+          <div class="bmi-stat glass"><span class="bmi-stat-label">Category</span><span class="bmi-stat-val" id="bmiStatCat">—</span></div>
+          <div class="bmi-stat glass"><span class="bmi-stat-label">Ideal Range</span><span class="bmi-stat-val" id="bmiStatRange">—</span></div>
+        </div>
+        <div class="ai-result-container glass hidden" id="bmiAdvice">
+          <div class="ai-result-header">
+            <span class="ai-badge">IBM Granite AI</span>
+          </div>
+          <div class="ai-result-content" id="bmiAdviceContent"></div>
+        </div>
+        <div class="ai-loader hidden" id="bmiLoader">
+          <div class="loader-dots"><span></span><span></span><span></span></div>
+          <p>IBM Granite is analyzing your health data…</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════════════
+     HABIT TRACKER
+═══════════════════════════════════════════════════════════════════════════ -->
+<section class="section" id="habits">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">✅ Habit Tracker</h2>
+      <p class="section-subtitle">Track your daily health habits and build consistency</p>
+    </div>
+    <div class="habits-layout">
+      <div class="habits-grid">
+        <div class="habit-card glass" id="habitWorkout" onclick="toggleHabit('workout')">
+          <div class="habit-checkbox" id="checkWorkout"><span>✓</span></div>
+          <div class="habit-icon">🏋️</div>
+          <div class="habit-label">Workout Completed</div>
+          <div class="habit-sub">Exercise for the day</div>
+        </div>
+        <div class="habit-card glass" id="habitWater" onclick="toggleHabit('water')">
+          <div class="habit-checkbox" id="checkWater"><span>✓</span></div>
+          <div class="habit-icon">💧</div>
+          <div class="habit-label">Water Intake</div>
+          <div class="habit-sub">Drank enough water</div>
+        </div>
+        <div class="habit-card glass" id="habitSleep" onclick="toggleHabit('sleep')">
+          <div class="habit-checkbox" id="checkSleep"><span>✓</span></div>
+          <div class="habit-icon">😴</div>
+          <div class="habit-label">Sleep Completed</div>
+          <div class="habit-sub">7–9 hours of sleep</div>
+        </div>
+        <div class="habit-card glass" id="habitMeal" onclick="toggleHabit('meal')">
+          <div class="habit-checkbox" id="checkMeal"><span>✓</span></div>
+          <div class="habit-icon">🥗</div>
+          <div class="habit-label">Healthy Meal</div>
+          <div class="habit-sub">Ate nutritious food</div>
+        </div>
+      </div>
+      <div class="habits-summary glass">
+        <h3 class="habits-title">Today's Progress</h3>
+        <div class="habits-ring-container">
+          <svg viewBox="0 0 120 120" class="habits-ring">
+            <circle cx="60" cy="60" r="50" fill="none" stroke="#e5e7eb" stroke-width="10"/>
+            <circle id="habitRing" cx="60" cy="60" r="50" fill="none" stroke="url(#ringGrad)" stroke-width="10"
+              stroke-linecap="round" stroke-dasharray="314" stroke-dashoffset="314"
+              transform="rotate(-90 60 60)"/>
+            <defs>
+              <linearGradient id="ringGrad" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#6366f1"/>
+                <stop offset="100%" stop-color="#06b6d4"/>
+              </linearGradient>
+            </defs>
+            <text id="habitPctText" x="60" y="55" text-anchor="middle" class="ring-pct">0%</text>
+            <text x="60" y="72" text-anchor="middle" class="ring-sub">Done</text>
+          </svg>
+        </div>
+        <div class="habits-count" id="habitsCount">0 / 4 habits completed</div>
+        <button class="btn btn-primary full-width mt-2" onclick="getHabitTip()">
+          💡 Get AI Tip
+        </button>
+        <div class="ai-result-container glass hidden mt-2" id="habitTipResult">
+          <div class="ai-result-header">
+            <span class="ai-badge">IBM Granite AI</span>
+          </div>
+          <div class="ai-result-content" id="habitTipContent"></div>
+        </div>
+        <div class="ai-loader hidden" id="habitLoader">
+          <div class="loader-dots"><span></span><span></span><span></span></div>
+          <p>Getting your tip…</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════════════
+     AI CHAT
+═══════════════════════════════════════════════════════════════════════════ -->
+<section class="section section-alt" id="chat">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">💬 AI Chat Coach</h2>
+      <p class="section-subtitle">Ask anything about fitness, nutrition, or wellness</p>
+    </div>
+    <div class="chat-container glass">
+      <div class="chat-header">
+        <div class="chat-avatar">
+          <span>🤖</span>
+        </div>
+        <div class="chat-header-info">
+          <div class="chat-name">Fitness Buddy AI</div>
+          <div class="chat-status"><span class="status-dot"></span>Powered by IBM Granite</div>
+        </div>
+        <button class="btn btn-sm btn-ghost" onclick="clearChat()">🗑️ Clear</button>
+      </div>
+      <div class="chat-messages" id="chatMessages">
+        <div class="chat-msg ai-msg">
+          <div class="msg-avatar">🤖</div>
+          <div class="msg-bubble">
+            Hi there! I'm your Fitness Buddy AI, powered by IBM Granite. I can help you with workout advice, nutrition tips, exercise modifications, and anything related to your health journey. What's on your mind?
+            <div class="msg-time">Just now</div>
+          </div>
+        </div>
+      </div>
+      <div class="chat-suggestions">
+        <button class="suggestion-chip" onclick="sendSuggestion(this)">What workout should I do today?</button>
+        <button class="suggestion-chip" onclick="sendSuggestion(this)">I have no gym equipment</button>
+        <button class="suggestion-chip" onclick="sendSuggestion(this)">Suggest a protein-rich meal</button>
+        <button class="suggestion-chip" onclick="sendSuggestion(this)">I have knee pain</button>
+        <button class="suggestion-chip" onclick="sendSuggestion(this)">How many calories should I eat?</button>
+        <button class="suggestion-chip" onclick="sendSuggestion(this)">Best exercises for belly fat</button>
+      </div>
+      <div class="chat-input-area">
+        <textarea
+          class="chat-input"
+          id="chatInput"
+          placeholder="Ask your fitness question…"
+          rows="1"
+          onkeydown="handleChatKey(event)"
+        ></textarea>
+        <button class="chat-send-btn" id="chatSendBtn" onclick="sendChatMessage()" aria-label="Send">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <line x1="22" y1="2" x2="11" y2="13"/>
+            <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════════════════════════════════════════ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">⚡ Fitness Buddy AI</div>
+        <p class="footer-desc">Your AI-powered personal fitness coach, built with IBM Granite and IBM watsonx.ai.</p>
+        <div class="footer-badges">
+          <span class="footer-badge">IBM Granite</span>
+          <span class="footer-badge">watsonx.ai</span>
+          <span class="footer-badge">IBM Cloud</span>
+        </div>
+      </div>
+      <div class="footer-links">
+        <h4>Features</h4>
+        <ul>
+          <li><a href="#workout">Workout Plans</a></li>
+          <li><a href="#nutrition">Nutrition</a></li>
+          <li><a href="#bmi">BMI Calculator</a></li>
+          <li><a href="#habits">Habit Tracker</a></li>
+          <li><a href="#chat">AI Chat</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="https://www.ibm.com/watsonx" target="_blank" rel="noopener">IBM watsonx.ai</a></li>
+          <li><a href="https://cloud.ibm.com" target="_blank" rel="noopener">IBM Cloud</a></li>
+          <li><a href="https://github.com" target="_blank" rel="noopener">GitHub</a></li>
+          <li><a href="https://render.com" target="_blank" rel="noopener">Deploy on Render</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Fitness Buddy AI. Built with ❤️ using IBM Granite AI &amp; IBM watsonx.ai.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- Toast Notification -->
+<div class="toast-container" id="toastContainer"></div>
+
+<!-- Scripts -->
+<script src="config.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
